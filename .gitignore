@@ -1,0 +1,10 @@
+tutorial1/target/*
+tutorial1/Cargo.lock
+tutorial2/target/*
+tutorial2/Cargo.lock
+tutorial3/target/*
+tutorial3/Cargo.lock
+tutorial4/target/*
+tutorial4/Cargo.lock
+tutorial5/target/*
+tutorial5/Cargo.lock
