@@ -1,10 +1,20 @@
-tutorial1/target/*
-tutorial1/Cargo.lock
-tutorial2/target/*
-tutorial2/Cargo.lock
-tutorial3/target/*
-tutorial3/Cargo.lock
-tutorial4/target/*
-tutorial4/Cargo.lock
-tutorial5/target/*
-tutorial5/Cargo.lock
+# Rust build artifacts — matches target/ in every tutorial directory.
+target/
+
+# Cargo lockfiles. For binary/application crates these are normally committed so
+# builds are reproducible, but these tutorials have no dependencies, so they are
+# ignored to keep the repository lightweight.
+Cargo.lock
+
+# rustfmt backups
+**/*.rs.bk
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS metadata
+.DS_Store
+Thumbs.db
