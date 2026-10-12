@@ -1,0 +1,368 @@
+{
+  "title": "Rust Dojo",
+  "version": 1,
+  "description": "Duolingo-style Rust lessons. All lesson content lives in this JSON file.",
+  "units": [
+    {
+      "id": "unit-1",
+      "title": "Unit 1 - Getting Started",
+      "description": "Output, variables, and the basic types.",
+      "color": "#58cc02",
+      "lessons": [
+        {
+          "id": "lesson-1",
+          "title": "Hello, Rust!",
+          "xp": 10,
+          "exercises": [
+            {
+              "type": "multiple-choice",
+              "prompt": "What does this macro call do?",
+              "code": "println!(\"Hello, world!\");",
+              "options": [
+                "Prints Hello, world! followed by a newline",
+                "Prints Hello, world! with no newline",
+                "Returns the text \"Hello, world!\"",
+                "Will not compile"
+              ],
+              "answer": 0,
+              "explanation": "println! prints its arguments to stdout and appends a newline (\\n)."
+            },
+            {
+              "type": "fill-blank",
+              "prompt": "Which macro prints text WITHOUT adding a trailing newline? Type the macro name, including the exclamation mark.",
+              "answers": ["print!", "print"],
+              "explanation": "print! writes exactly what you give it. println! is the one that adds the newline."
+            },
+            {
+              "type": "true-false",
+              "prompt": "Every binary Rust program must define a fn main() function.",
+              "answer": true,
+              "explanation": "main is the entry point the runtime calls to start your program."
+            }
+          ]
+        },
+        {
+          "id": "lesson-2",
+          "title": "Variables",
+          "xp": 10,
+          "exercises": [
+            {
+              "type": "multiple-choice",
+              "prompt": "Which keyword makes a let binding reassignable?",
+              "code": "let ___ x = 4;",
+              "options": ["mut", "var", "const", "change"],
+              "answer": 0,
+              "explanation": "Bindings are immutable by default; mut makes one mutable, so `let mut x = 4;`."
+            },
+            {
+              "type": "fill-blank",
+              "prompt": "Fill in the missing keyword so the constant compiles.",
+              "template": "___ SECONDS_IN_MINUTES: u32 = 60;",
+              "answers": ["const"],
+              "explanation": "const declares a compile-time constant. It must have an explicit type."
+            },
+            {
+              "type": "true-false",
+              "prompt": "Shadowing with a new let can change the type of a name.",
+              "answer": true,
+              "explanation": "Unlike mut reassignment, `let x = \"text\";` can shadow an integer x and change its type."
+            }
+          ]
+        },
+        {
+          "id": "lesson-3",
+          "title": "Data Types",
+          "xp": 10,
+          "exercises": [
+            {
+              "type": "multiple-choice",
+              "prompt": "What integer type does an unannotated integer literal default to?",
+              "code": "let x = 3;",
+              "options": ["i32", "u32", "i64", "usize"],
+              "answer": 0,
+              "explanation": "Integer literals default to i32 unless inference or an annotation says otherwise."
+            },
+            {
+              "type": "multiple-choice",
+              "prompt": "Which type can hold the value -1?",
+              "options": ["u8", "u32", "i8", "usize"],
+              "answer": 2,
+              "explanation": "Only signed types (i8, i16, ...) can hold negatives. u-types are zero and positive only."
+            },
+            {
+              "type": "true-false",
+              "prompt": "In Rust, 'a' is a char and \"a\" is a &str.",
+              "answer": true,
+              "explanation": "Single quotes make a char (one Unicode scalar value); double quotes make a string slice."
+            },
+            {
+              "type": "fill-blank",
+              "prompt": "Complete the array type for five i32 values.",
+              "template": "let arr: ___ = [1, 2, 3, 4, 5];",
+              "answers": ["[i32; 5]"],
+              "explanation": "An array type is written [element type; length], e.g. [i32; 5]."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-2",
+      "title": "Unit 2 - Input & Math",
+      "description": "Read from the user and do arithmetic safely.",
+      "color": "#1cb0f6",
+      "lessons": [
+        {
+          "id": "lesson-4",
+          "title": "Console Input",
+          "xp": 10,
+          "exercises": [
+            {
+              "type": "fill-blank",
+              "prompt": "Complete the import so you can use stdin.",
+              "template": "use std::___;",
+              "answers": ["io"],
+              "explanation": "`use std::io;` brings the io module into scope so you can write io::stdin()."
+            },
+            {
+              "type": "multiple-choice",
+              "prompt": "Which line reads a line of text from the user?",
+              "options": [
+                "io::stdin().read_line(&mut input)",
+                "input.read_line()",
+                "stdin().read(input)",
+                "read_line(input)"
+              ],
+              "answer": 0,
+              "explanation": "read_line appends into a &mut String and returns a Result."
+            },
+            {
+              "type": "true-false",
+              "prompt": "read_line removes the trailing newline from the input.",
+              "answer": false,
+              "explanation": "It keeps the newline, which is why you usually call .trim() before using the value."
+            }
+          ]
+        },
+        {
+          "id": "lesson-5",
+          "title": "Arithmetic & Casting",
+          "xp": 10,
+          "exercises": [
+            {
+              "type": "multiple-choice",
+              "prompt": "What is the result of this integer division?",
+              "code": "let z = 9 / 10;",
+              "options": ["0", "0.9", "1", "It does not compile"],
+              "answer": 0,
+              "explanation": "Integer division truncates toward zero, discarding the fractional part."
+            },
+            {
+              "type": "fill-blank",
+              "prompt": "What keyword converts a numeric type explicitly?",
+              "template": "let z = x ___ f32 / y as f32;",
+              "answers": ["as"],
+              "explanation": "`as` performs an explicit cast. Rust never converts numeric types implicitly."
+            },
+            {
+              "type": "multiple-choice",
+              "prompt": "In a debug build, what happens on integer overflow?",
+              "code": "let a: u8 = 255;\nlet b = a + 1;",
+              "options": [
+                "The program panics",
+                "It silently wraps to 0",
+                "It returns an Option",
+                "It does not compile"
+              ],
+              "answer": 0,
+              "explanation": "Debug builds panic on overflow. Release builds wrap around (two's complement)."
+            },
+            {
+              "type": "true-false",
+              "prompt": "Rust will automatically convert an i16 to an i32 when you add them.",
+              "answer": false,
+              "explanation": "There are no implicit numeric conversions; you must cast with `as` yourself."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-3",
+      "title": "Unit 3 - Control Flow",
+      "description": "Make decisions, repeat work, and reuse code.",
+      "color": "#ce82ff",
+      "lessons": [
+        {
+          "id": "lesson-6",
+          "title": "Conditionals",
+          "xp": 10,
+          "exercises": [
+            {
+              "type": "multiple-choice",
+              "prompt": "What type must an if condition have?",
+              "code": "if condition { ... }",
+              "options": ["bool", "i32", "any type", "&str"],
+              "answer": 0,
+              "explanation": "Conditions must be bool. There is no truthy/falsy coercion in Rust."
+            },
+            {
+              "type": "fill-blank",
+              "prompt": "Complete the if expression.",
+              "template": "let label = if n % 2 == 0 { \"even\" } ___ { \"odd\" };",
+              "answers": ["else"],
+              "explanation": "`if ... { } else { }` is an expression here; both arms must have the same type."
+            },
+            {
+              "type": "true-false",
+              "prompt": "In Rust, if is an expression, so it can produce a value.",
+              "answer": true,
+              "explanation": "That is why `let x = if c { 1 } else { 2 };` works."
+            }
+          ]
+        },
+        {
+          "id": "lesson-7",
+          "title": "Loops",
+          "xp": 10,
+          "exercises": [
+            {
+              "type": "multiple-choice",
+              "prompt": "Which loop can break with a value, making the whole loop evaluate to it?",
+              "options": ["loop", "while", "for", "do..while"],
+              "answer": 0,
+              "explanation": "Only `loop` supports `break value;` because the compiler knows it can only exit via break."
+            },
+            {
+              "type": "fill-blank",
+              "prompt": "How many numbers does this half-open range yield? (type a number)",
+              "code": "for i in 1..5 { print!(\"{i} \"); }",
+              "answers": ["4"],
+              "explanation": "1..5 is half-open: 1, 2, 3, 4 = four values. Use 1..=5 for five."
+            },
+            {
+              "type": "multiple-choice",
+              "prompt": "What does continue do inside a loop?",
+              "options": [
+                "Skips the rest of this iteration and starts the next",
+                "Exits the loop entirely",
+                "Restarts the whole program",
+                "Returns a value from the loop"
+              ],
+              "answer": 0,
+              "explanation": "continue jumps to the next iteration; break leaves the loop."
+            }
+          ]
+        },
+        {
+          "id": "lesson-8",
+          "title": "Functions",
+          "xp": 10,
+          "exercises": [
+            {
+              "type": "fill-blank",
+              "prompt": "What symbol separates a function's parameters from its return type?",
+              "template": "fn add(a: i32, b: i32) ___ i32 { a + b }",
+              "answers": ["->"],
+              "explanation": "The arrow `->` gives the return type. No arrow means the return type is ()."
+            },
+            {
+              "type": "true-false",
+              "prompt": "Adding a trailing semicolon to the last expression returns that value.",
+              "code": "fn f(n: i32) -> i32 { n + 1; }",
+              "answer": false,
+              "explanation": "The semicolon turns the expression into a statement, so the function returns () - a type error."
+            },
+            {
+              "type": "multiple-choice",
+              "prompt": "How do you return more than one value from a function?",
+              "options": [
+                "Return a tuple",
+                "Use multiple return statements",
+                "Return an array only",
+                "It is impossible"
+              ],
+              "answer": 0,
+              "explanation": "Return a tuple like (min, max) and destructure it at the call site."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-4",
+      "title": "Unit 4 - Deep Rust",
+      "description": "Ownership and modelling your own data.",
+      "color": "#ff9600",
+      "lessons": [
+        {
+          "id": "lesson-9",
+          "title": "Ownership",
+          "xp": 15,
+          "exercises": [
+            {
+              "type": "multiple-choice",
+              "prompt": "After this move, can you still use s?",
+              "code": "let s = String::from(\"hi\");\nlet t = s;\nprintln!(\"{s}\");",
+              "options": [
+                "No - s was moved into t",
+                "Yes - String is Copy",
+                "Yes - t is just an alias",
+                "Yes - but only once"
+              ],
+              "answer": 0,
+              "explanation": "String owns heap memory and is not Copy. Assignment moves it, invalidating s."
+            },
+            {
+              "type": "true-false",
+              "prompt": "You can hold several &T shared borrows and a &mut T at the same time.",
+              "answer": false,
+              "explanation": "You may have many shared borrows OR one exclusive borrow, never both at once."
+            },
+            {
+              "type": "fill-blank",
+              "prompt": "Complete the mutable reference so the function can modify the string.",
+              "template": "fn append(text: &___ String) { text.push_str(\"!\"); }",
+              "answers": ["mut"],
+              "explanation": "&mut T is an exclusive (read/write) reference. The source value must also be mut."
+            },
+            {
+              "type": "multiple-choice",
+              "prompt": "Which of these types is Copy (so assignment copies instead of moving)?",
+              "options": ["String", "Vec<i32>", "i32", "&mut i32"],
+              "answer": 2,
+              "explanation": "Scalars like i32 implement Copy. String and Vec own heap data and are move-only."
+            }
+          ]
+        },
+        {
+          "id": "lesson-10",
+          "title": "Structs & Enums",
+          "xp": 15,
+          "exercises": [
+            {
+              "type": "fill-blank",
+              "prompt": "Which keyword defines a group of named fields?",
+              "template": "___ Rectangle { width: u32, height: u32 }",
+              "answers": ["struct"],
+              "explanation": "`struct` groups named fields into one type."
+            },
+            {
+              "type": "multiple-choice",
+              "prompt": "In an impl block, which method receiver CONSUMES the value?",
+              "options": ["self", "&self", "&mut self", "static self"],
+              "answer": 0,
+              "explanation": "`self` takes ownership, so the value cannot be used afterwards. &self borrows to read, &mut self borrows to modify."
+            },
+            {
+              "type": "true-false",
+              "prompt": "A match expression must handle every variant of the enum it matches on.",
+              "answer": true,
+              "explanation": "match is exhaustive; the compiler forces you to cover all cases (or add a _ arm)."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

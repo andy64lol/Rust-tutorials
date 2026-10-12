@@ -53,6 +53,19 @@ Each tutorial has a matching practice set in [`exercises/`](exercises/README.md)
 (`tutorial1.md` … `tutorial10.md`). Work through them after reading the tutorial's
 source. They include expected outputs and hints (but no checked-in solutions).
 
+## Interactive website
+
+There is a Duolingo-style interactive version of these lessons under [`site/`](site/README.md):
+a path of units, XP, streaks, hearts, and per-exercise feedback. It is a
+dependency-free static site; lesson content is data-driven from
+`site/data/lessons.json`, and your progress can be exported/imported as JSON.
+
+```bash
+cd site
+python3 -m http.server 8000
+# open http://localhost:8000
+```
+
 ## Conventions used throughout
 
 - Older tutorials (1–5) were originally written with inline `//` comments; these have
@@ -72,6 +85,12 @@ rust/
 │   ├── tutorial1.md
 │   ├── ...
 │   └── tutorial10.md
+├── site/                  # Duolingo-style interactive lessons
+│   ├── README.md
+│   ├── index.html
+│   ├── styles.css
+│   ├── app.js
+│   └── data/lessons.json  # all lesson content
 ├── tutorial1/
 │   ├── README.md      # concept explanation
 │   ├── Cargo.toml

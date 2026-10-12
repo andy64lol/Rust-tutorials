@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rust Dojo - Learn Rust</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦀</text></svg>"
+    />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-emoji">🦀</span>
+        <span class="brand-name">Rust Dojo</span>
+      </div>
+      <div class="stats">
+        <span class="stat" title="Experience points">⚡ <b id="stat-xp">0</b></span>
+        <span class="stat" title="Lessons completed">🏆 <b id="stat-done">0</b></span>
+        <span class="stat" title="Day streak">🔥 <b id="stat-streak">0</b></span>
+      </div>
+      <div class="tools">
+        <button class="btn tiny" id="btn-export" title="Download your progress as JSON">Export</button>
+        <button class="btn tiny" id="btn-import" title="Import progress from a JSON file">Import</button>
+        <input type="file" id="file-import" accept="application/json,.json" hidden />
+        <button class="btn tiny danger" id="btn-reset" title="Erase all progress">Reset</button>
+      </div>
+    </header>
+
+    <main id="app">
+      <div class="loading">Loading lessons…</div>
+    </main>
+
+    <footer class="footer">
+      Progress is saved in your browser (localStorage). Use
+      <b>Export</b> to download it as JSON.
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
