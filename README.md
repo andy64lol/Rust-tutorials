@@ -2,7 +2,9 @@
 
 A hands-on, progressive tour of the Rust programming language. Each tutorial is a
 self-contained Cargo binary whose `src/main.rs` is heavily commented: it explains not
-just *what* the code does, but *why* the language works that way.
+just *what* the code does, but *why* the language works that way. Every tutorial folder
+also has its own `README.md` that explains the concepts, and a matching practice set in
+[`exercises/`](exercises/README.md).
 
 The tutorials build on each other, so reading them in order is recommended.
 
@@ -32,18 +34,18 @@ echo 42 | cargo run
 
 ## Curriculum
 
-| #  | Folder      | Topic                                                              |
-| -- | ----------- | ------------------------------------------------------------------ |
-| 1  | `tutorial1` | Basic output (`println!` / `print!`, macros, `main`)               |
-| 2  | `tutorial2` | Variables, constants, mutability (`mut`), scopes, and shadowing    |
-| 3  | `tutorial3` | Primitive data types: integers, floats, bools, chars, tuples, arrays |
-| 4  | `tutorial4` | Reading console input from `stdin`, `String`, and `Result`         |
-| 5  | `tutorial5` | Arithmetic, integer division, overflow, and type casting (`as`)    |
-| 6  | `tutorial6` | Conditionals (`if`/`else`) and boolean logic (`&&`, `\|\|`, `!`)   |
-| 7  | `tutorial7` | Loops: `loop`, `while`, `for`, `break`, `continue`, and labels     |
-| 8  | `tutorial8` | Functions: parameters, return values, expressions vs statements    |
-| 9  | `tutorial9` | Ownership, moves, borrowing, references, `String` vs `&str`, slices |
-| 10 | `tutorial10`| Structs, methods, enums, and pattern matching with `match`         |
+| #  | Tutorial | Docs | Topic |
+| -- | -------- | ---- | ----- |
+| 1  | `tutorial1` | [README](tutorial1/README.md) | Basic output (`println!` / `print!`, macros, `main`) |
+| 2  | `tutorial2` | [README](tutorial2/README.md) | Variables, constants, mutability (`mut`), scopes, and shadowing |
+| 3  | `tutorial3` | [README](tutorial3/README.md) | Primitive data types: integers, floats, bools, chars, tuples, arrays |
+| 4  | `tutorial4` | [README](tutorial4/README.md) | Reading console input from `stdin`, `String`, and `Result` |
+| 5  | `tutorial5` | [README](tutorial5/README.md) | Arithmetic, integer division, overflow, and type casting (`as`) |
+| 6  | `tutorial6` | [README](tutorial6/README.md) | Conditionals (`if`/`else`) and boolean logic (`&&`, `\|\|`, `!`) |
+| 7  | `tutorial7` | [README](tutorial7/README.md) | Loops: `loop`, `while`, `for`, `break`, `continue`, and labels |
+| 8  | `tutorial8` | [README](tutorial8/README.md) | Functions: parameters, return values, expressions vs statements |
+| 9  | `tutorial9` | [README](tutorial9/README.md) | Ownership, moves, borrowing, references, `String` vs `&str`, slices |
+| 10 | `tutorial10`| [README](tutorial10/README.md) | Structs, methods, enums, and pattern matching with `match` |
 
 ## Exercises
 
@@ -71,8 +73,9 @@ rust/
 │   ├── ...
 │   └── tutorial10.md
 ├── tutorial1/
+│   ├── README.md      # concept explanation
 │   ├── Cargo.toml
-│   └── src/main.rs   # heavily documented source
+│   └── src/main.rs    # heavily documented source
 ├── tutorial2/
 ├── ...
 └── tutorial10/
