@@ -45,6 +45,12 @@ echo 42 | cargo run
 | 9  | `tutorial9` | Ownership, moves, borrowing, references, `String` vs `&str`, slices |
 | 10 | `tutorial10`| Structs, methods, enums, and pattern matching with `match`         |
 
+## Exercises
+
+Each tutorial has a matching practice set in [`exercises/`](exercises/README.md)
+(`tutorial1.md` … `tutorial10.md`). Work through them after reading the tutorial's
+source. They include expected outputs and hints (but no checked-in solutions).
+
 ## Conventions used throughout
 
 - Older tutorials (1–5) were originally written with inline `//` comments; these have
@@ -59,6 +65,11 @@ echo 42 | cargo run
 rust/
 ├── README.md
 ├── .gitignore
+├── exercises/
+│   ├── README.md          # exercise index
+│   ├── tutorial1.md
+│   ├── ...
+│   └── tutorial10.md
 ├── tutorial1/
 │   ├── Cargo.toml
 │   └── src/main.rs   # heavily documented source
